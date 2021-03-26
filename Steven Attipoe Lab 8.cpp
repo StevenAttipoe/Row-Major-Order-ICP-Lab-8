@@ -119,7 +119,7 @@ int main(int argc, char *argv[]){
             cout << endl;
         }
 
-    int arrayC2[8][8];
+    int arrayC2[32][32];
     for (int i = 0; i < 8; i++) { 
         for (int j = 0; j < 8; j++) { 
                 int I =LinearIndx(I,j,8);
@@ -130,7 +130,7 @@ int main(int argc, char *argv[]){
             cout << endl;
         }
 
-    int arrayC3[8][8];
+    int arrayC3[128][128];
     for (int i = 0; i < 8; i++) { 
         for (int j = 0; j < 8; j++) { 
                 int I =LinearIndx(I,j,8);
