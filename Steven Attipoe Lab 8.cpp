@@ -76,7 +76,7 @@ int main(int argc, char *argv[]){
     int array1D[64];
     for (int i = 0; i < 8; i++) { 
         for (int j = 0; j < 8; j++) { 
-            int I =LinearIndx(i,j,8); \\inserts into the 1 dimensional array the values of the 2d array
+            int I =LinearIndx(i,j,8); //inserts into the 1 dimensional array the values of the 2d array
                 int num;
                 num = array1[i][j];
                 array1D[I] = num;
