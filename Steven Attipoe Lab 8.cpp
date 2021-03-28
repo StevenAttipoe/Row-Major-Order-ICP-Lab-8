@@ -33,7 +33,7 @@ int main(int argc, char *argv[]){
             for (int j = 0; j < 8; j++) { 
                 if (i < j) { 
                     array1[i][j] =0;
-                    cout<<array1[i][j]<< " "<<endl;
+                    cout<<array1[i][j]<< " ";
                 } //fills array with 0 if rows are less than columns.
                 else{
                     int random = rand()%(1000)+1;
@@ -48,7 +48,7 @@ int main(int argc, char *argv[]){
         for (int j = 0; j < 32; j++) { 
             if (i < j) { 
                 array1[i][j] =0;
-                cout<<array2[i][j]<< " "<<endl; 
+                cout<<array2[i][j]<< " "; 
             } 
             else{
                 int random = rand()%(1000)+1;
@@ -63,7 +63,7 @@ int main(int argc, char *argv[]){
         for (int j = 0; j < 128; j++) { 
             if (i < j) { 
                 array3[i][j] =0;
-                cout<<array3[i][j]<< " "<<endl;
+                cout<<array3[i][j]<< " ";
             } 
             else{
                 int random = rand()%(1000)+1;
