@@ -13,18 +13,12 @@ int LinearIndx(int col,int i, int j){
     return Index;
 }
 
-tuple<int,int> InverseIdx(int index, int rows, int columns){
-	//function for linear index computation
-for(int i=0; i<rows; i++){
-        //check if the index parameter is in the row
-        if(index < (columns * i) + columns && index >= columns * i){
-            //return i, j indices
-            return make_tuple(i,index - columns * i);
-        }
-    }
-    return make_tuple(0,0); //return tuples as indices
+int InverseIdx(int index, int rnum){
+    int i = index % rnum;
+    int j = index/ rnum;
+    return i,j;
+    
 }
-
 
 int main(int argc, char *argv[]){
     int array1[8][8];
@@ -60,8 +54,7 @@ int main(int argc, char *argv[]){
                  if(z<20){
                 cout << array2[i][j] << " ";}
                 z++;} 
-            }  if(z<20){
-        cout << endl; }
+            }  if(z<20){cout << endl; }
     }
     cout<< "  \n"<<endl;
     z=0;
@@ -76,17 +69,15 @@ int main(int argc, char *argv[]){
                 array3[i][j] = random;
                  if(z<20){
                 cout << array3[i][j] << " ";
-                z++;}
-                } 
-            } if(z<20){ 
-        cout << endl;}
-}
+                z++;}} 
+            }  if(z<20){cout << endl; }
+    }
   
     int arrayB1[64];
     for (int i = 0; i < 8; i++) { 
         for (int j = 0; j < 8; j++) { 
             int I =LinearIndx(8,i,j); //inserts into the 1 dimensional array the values of the 2d array
-            if (i<j){ //ensures inserting of only lower trianbular matrix values
+            if (i<=j){ //ensures inserting of only lower trianbular matrix values
             arrayB1[I] = array1[i][j];
             }
         }
@@ -105,7 +96,7 @@ int main(int argc, char *argv[]){
     for (int i = 0; i < 32; i++) { 
         for (int j = 0; j < 32; j++) { 
             int I =LinearIndx(32,i,j);
-            if (i<j){ //ensures inserting of only lower trianbular matrix values
+            if (i<=j){ //ensures inserting of only lower trianbular matrix values
             arrayB2[I] = array2[i][j];
             }
         }
@@ -121,7 +112,7 @@ int main(int argc, char *argv[]){
     for (int i = 0; i < 128; i++) { 
         for (int j = 0; j < 128; j++) { 
             int I =LinearIndx(128,i,j);
-                if (i<j){ //ensures inserting of only lower trianbular matrix values
+                if (i<=j){ //ensures inserting of only lower trianbular matrix values
             arrayB3[I] = array3[i][j];
                 }
         }
@@ -139,9 +130,9 @@ int main(int argc, char *argv[]){
     int arrayC1[8][8];
     for (int i = 0; i < 8; i++) { 
         for (int j = 0; j < 8; j++) { 
-                int I =LinearIndx(I,j,8); //converts 1d array back to 2d array with InverseIdx values.
-                tuple<int,int> indices =InverseIdx(I,8,8);
-                arrayC1[get<0>(indices)][get<1>(indices)];
+                int I =LinearIndx(8,i,j); //converts 1d array back to 2d array with InverseIdx values.
+                int x,y =InverseIdx(I,8);
+                arrayC1[x][y]=arrayB1[I];
                 if(z<20){
                     cout << arrayC1[i][j] << " ";}  //outputs array
                     z++;
@@ -153,11 +144,11 @@ int main(int argc, char *argv[]){
     cout<< "  \n"<<endl;
     z=0;
     int arrayC2[32][32];
-    for (int i = 0; i < 8; i++) { 
-        for (int j = 0; j < 8; j++) { 
-                int I =LinearIndx(I,j,8);
-                tuple<int,int> indices =InverseIdx(I,8,8);
-                arrayC2[get<0>(indices)][get<1>(indices)];
+    for (int i = 0; i < 32; i++) { 
+        for (int j = 0; j < 32; j++) { 
+                int I =LinearIndx(32,i,j);
+                int x,y =InverseIdx(I,32);
+                arrayC2[x][y]=arrayB2[I];
                 if(z<20){
                     cout << arrayC2[i][j] << " ";}  //outputs array
                     z++;
@@ -167,11 +158,11 @@ int main(int argc, char *argv[]){
     cout<< "  \n"<<endl;
     z=0;
     int arrayC3[128][128];
-    for (int i = 0; i < 8; i++) { 
-        for (int j = 0; j < 8; j++) { 
-                int I =LinearIndx(I,j,8);
-                tuple<int,int> indices =InverseIdx(I,8,8);
-                arrayC3[get<0>(indices)][get<1>(indices)];
+    for (int i = 0; i < 128; i++) { 
+        for (int j = 0; j < 1288; j++) { 
+                int I =LinearIndx(128,i,j);
+                int x,y =InverseIdx(I,128);
+                arrayC3[x][y]=arrayB3[I];
                 if(z<20){
                     cout << arrayC3[i][j] << " ";}  //outputs array
                     z++;
