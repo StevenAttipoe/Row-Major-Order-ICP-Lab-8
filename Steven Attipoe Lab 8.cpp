@@ -73,37 +73,37 @@ int main(int argc, char *argv[]){
         cout << endl;
 }
     
-    int array1D[64];
+    int arrayB1[64];
     for (int i = 0; i < 8; i++) { 
         for (int j = 0; j < 8; j++) { 
             int I =LinearIndx(i,j,8); //inserts into the 1 dimensional array the values of the 2d array
                 int num;
                 num = array1[i][j];
-                array1D[I] = num;
+                arrayB1[I] = num;
                 cout<< num << " ";
         }
 
     }
 
-    int array2D[1024];
+    int arrayB2[1024];
     for (int i = 0; i < 32; i++) { 
         for (int j = 0; j < 32; j++) { 
             int I =LinearIndx(i,j,32);
                 int num;
                 num = array2[i][j];
-                array2D[I] = num;
+                arrayB2[I] = num;
                 cout<< num << " ";
         }
 
     }
 
-    int array3D[16384];
+    int arrayB3[16384];
     for (int i = 0; i < 128; i++) { 
         for (int j = 0; j < 128; j++) { 
             int I =LinearIndx(i,j,128);
                 int num;
                 num = array3[i][j];
-                array3D[I] = num;
+                arrayB3[I] = num;
                 cout<< num << " ";
         }
 
